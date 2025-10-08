@@ -1,4 +1,49 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541109
+AD-SOYAD:ismail Özdemir 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+optimum bütçeli market alışverişi 
+Fonksiyon: OptimumAlisveris(butce, ihtiyac_listesi, urun_fiyatlari)
+
+1. Başla
+
+2. Değişkenleri Tanımla:
+   satin_alinan_urunler ← boş liste
+   kalan_butce ← butce
+
+3. İhtiyaç listesinde ürünleri öncelik sırasına göre sırala:
+   sirali_liste ← ihtiyac_listesi'ni 'oncelik' artan sırada sırala
+
+4. Her urun için döngü başlat:
+   Döngü: urun in sirali_liste
+
+     isim ← urun["isim"]
+     miktar ← urun["miktar"]
+     birim_fiyat ← urun_fiyatlari[isim]
+     toplam_fiyat ← miktar * birim_fiyat
+
+     Eğer toplam_fiyat ≤ kalan_butce ise:
+        → Ürünün tamamı alınabiliyor
+        satin_alinan_urunler'e şu bilgileri ekle:
+            {"isim": isim, "miktar": miktar, "birim_fiyat": birim_fiyat, "toplam_fiyat": toplam_fiyat}
+        kalan_butce ← kalan_butce - toplam_fiyat
+
+     Aksi halde:
+        → Yeterli bütçe yok, kısmî alım dene
+        alinabilir_miktar ← TAM SAYI(kalan_butce / birim_fiyat)
+
+        Eğer alinabilir_miktar > 0 ise:
+            kismi_fiyat ← alinabilir_miktar * birim_fiyat
+            satin_alinan_urunler'e ekle:
+                {"isim": isim, "miktar": alinabilir_miktar, "birim_fiyat": birim_fiyat, "toplam_fiyat": kismi_fiyat}
+            kalan_butce ← kalan_butce - kismi_fiyat
+
+        Aksi halde:
+            → Bu ürün hiç alınamaz, bir şey yapma
+
+5. Döngü bitince sonuçları döndür:
+   Çıktı olarak şunları ver:
+     - satin_alinan_urunler
+     - kalan_butce
+
+6. Bitir
