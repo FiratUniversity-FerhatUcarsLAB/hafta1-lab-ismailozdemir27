@@ -2,7 +2,176 @@
 AD-SOYAD:ismail Özdemir 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
-optimum bütçeli market alışverişi 
+Görev: Günlük Hayat Algoritması – Optimum Bütçeli Market Alışverişi
+
+Amaç: Belirli bir bütçeyle, ihtiyaç listesine göre en verimli şekilde alışveriş yapmak.
+
+
+---
+
+🧠 Problem Tanımı:
+
+Elimizde bir ihtiyaç listesi ve sınırlı bir bütçe var. Amacımız, bütçeyi aşmadan listedeki en öncelikli ürünleri en uygun fiyatlı şekilde almak.
+
+
+---
+
+🔢 Girdiler:
+
+butce: Alışveriş için ayrılan maksimum para miktarı (örneğin: 300 TL)
+
+ihtiyac_listesi: Alınması gereken ürünlerin listesi (isim, öncelik, miktar)
+
+urun_fiyatlari: Ürünlerin fiyat bilgileri (isim, birim fiyat)
+
+
+
+---
+
+🛒 Pseudocode – Optimum Bütçeli Alışveriş Algoritması:
+
+Girdi:
+    butce ← kullanıcının belirlediği bütçe
+    ihtiyac_listesi ← [{isim: string, oncelik: int, miktar: int}, ...]
+    urun_fiyatlari ← {urun_adi: birim_fiyat}
+
+Çıktı:
+    satin_alinan_urunler ← [{isim: string, miktar: int, toplam_fiyat: float}]
+    kalan_butce ← float
+
+Başla:
+    satin_alinan_urunler ← []
+    kalan_butce ← butce
+
+    // Öncelikli ürünleri sırala (öncelik: düşük sayı = yüksek öncelik)
+    sirali_liste ← ihtiyac_listesi'ni oncelik'e göre artan sırada sırala
+
+    Her urun in sirali_liste için:
+        isim ← urun["isim"]
+        miktar ← urun["miktar"]
+        birim_fiyat ← urun_fiyatlari[isim]
+        toplam_fiyat ← miktar * birim_fiyat
+
+        Eğer toplam_fiyat ≤ kalan_butce ise:
+            satin_alinan_urunler'e {isim, miktar, toplam_fiyat} ekle
+            kalan_butce ← kalan_butce - toplam_fiyat
+        Aksi halde:
+            alınabilir_miktar ← floor(kalan_butce / birim_fiyat)
+            Eğer alınabilir_miktar > 0 ise:
+                kismi_fiyat ← alınabilir_miktar * birim_fiyat
+                satin_alinan_urunler'e {isim, alınabilir_miktar, kismi_fiyat} ekle
+                kalan_butce ← kalan_butce - kismi_fiyat
+
+    Çık:
+        satin_alinan_urunler
+        kalan_butce
+Bitir
+
+
+---
+
+🧪 Örnek Senaryo:
+
+Bütçe: 100 TL
+İhtiyaç Listesi:
+
+Ürün	Öncelik	Miktar
+
+Ekmek	1	2
+Süt	2	1
+Peynir	2	1
+Çikolata	4	3
+
+
+Fiyatlar:
+
+Ekmek: 5 TL
+
+Süt: 15 TL
+
+Peynir: 40 TL
+
+Çikolata: 10 TL
+
+
+Çıktı:
+
+Alınanlar:
+
+2 Ekmek (10 TL)
+
+1 Süt (15 TL)
+
+1 Peynir (40 TL)
+
+3 Çikolata = 30 TL → bütçe yetmediği için sadece 1 adet (10 TL) alındı
+
+
+Kalan Bütçe: 25 TL → çikolata 1 adet alındıktan sonra 15 TL kaldı.
+                     
+                      
+
+Algoritma için biraz daha ayrıntı yapabilir misin
+
+
+Elbette! Daha ayrıntılı ve açıklamalı bir "Optimum Bütçeli Market Alışverişi" algoritması vereyim. Bu sürümde hem karar adımlarını, hem de veri yapılarının nasıl kullanıldığını daha net göreceksin.
+
+
+---
+
+🧠 Algoritmanın Detaylı Tanımı
+
+🔍 Amaç:
+
+Sabit bir bütçeyle, bir ihtiyaç listesindeki ürünleri öncelik sırasına göre ve fiyat performansı en iyi olacak şekilde satın almak.
+
+
+---
+
+🔣 Girdiler (Input)
+
+1. butce: (float) – Kullanıcının alışveriş için ayırdığı para.
+
+
+2. ihtiyac_listesi: (liste) – Her biri bir sözlük olan ürünler:
+
+[
+  {"isim": "Ekmek", "oncelik": 1, "miktar": 2},
+  {"isim": "Süt", "oncelik": 2, "miktar": 1},
+  ...
+]
+
+
+3. urun_fiyatlari: (sözlük) – Ürün adı ve birim fiyatı:
+
+{
+  "Ekmek": 5,
+  "Süt": 15,
+  ...
+}
+
+
+
+
+---
+
+🔧 Veri Yapıları
+
+Listeler:
+
+satin_alinan_urunler: Satın alınan ürünlerin detaylarını tutar.
+
+
+Değişkenler:
+
+kalan_butce: Her ürün alımından sonra güncellenir.
+
+
+
+---
+
+🧾 Adım Adım Detaylı Pseudocode
+
 Fonksiyon: OptimumAlisveris(butce, ihtiyac_listesi, urun_fiyatlari)
 
 1. Başla
@@ -47,3 +216,27 @@ Fonksiyon: OptimumAlisveris(butce, ihtiyac_listesi, urun_fiyatlari)
      - kalan_butce
 
 6. Bitir
+
+
+---
+
+📌 Ek Notlar:
+
+Öncelik Sistemi: Düşük sayı = yüksek öncelik (1 > 2 > 3…)
+
+Kısmî Alım: Yeterli bütçe kalmasa bile ürünün bir kısmı alınabiliyorsa o kadar alınır.
+
+Daha Akıllı Seçim İçin (İsteğe Bağlı): "Fiyat / Öncelik katsayısı" gibi daha gelişmiş stratejiler de uygulanabilir.
+
+
+
+---
+
+🎓 İsteğe Bağlı Geliştirme Fikirleri:
+
+Sepet değeri / fayda oranı hesaplaması (örneğin kalori, protein, gram fiyatı).
+
+Marketlerdeki fiyat karşılaştırması (aynı ürün farklı fiyatlarda olabilir).
+
+Alternatif ürün önerisi (peynir yerine lor gibi. 
+
