@@ -1,4 +1,143 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541109
+AD-SOYAD:ismail özdemir
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+ 
+Veri oyunu algoritması
+Kütüphanede kitap arama algoritması
+Pseudecode yi daha ayrıntılı yazar mısın
+
+
+Tabii! Aşağıda sana bir veri oyunu algoritması örneği olarak kütüphanede kitap arama algoritmasını detaylı bir şekilde, adım adım açıklayarak ve ayrıntılı bir pseudocode şeklinde sunuyorum.
+
+Bu algoritma, hem gerçek bir kütüphane sistemi için hem de eğitim amaçlı bir “veri oyununda” kitap arama sürecini simüle etmek için kullanılabilir.
+
+
+---
+
+📚 KÜTÜPHANEDE KİTAP ARAMA ALGORİTMASI
+
+Amaç: Kullanıcının aradığı kitap bilgisini girerek, kitapları içeren veri yapısından doğru kitabı bulmak.
+
+
+---
+
+📥 GİRDİLER (INPUT):
+
+kitap_adi: Kullanıcının aradığı kitabın adı veya anahtar kelimesi
+
+kitap_katalogu: Kütüphanede kayıtlı tüm kitapların listesi
+Her kitap bir nesne/sözlük şeklinde:
+
+{
+  "baslik": "Kürk Mantolu Madonna",
+  "yazar": "Sabahattin Ali",
+  "ISBN": "9789753638029",
+  "kategori": "Roman",
+  "raf_no": "A-3-12"
+}
+
+
+
+---
+
+📤 ÇIKTILAR (OUTPUT):
+
+Aranan kitap(lar)ın bilgileri (başlık, yazar, raf_no vb.)
+
+Kitap bulunamazsa: "Kitap bulunamadı" mesajı
+
+
+
+---
+
+📋 PSEUDOCODE – DETAYLI
+
+Fonksiyon: KitapAra(kitap_adi, kitap_katalogu)
+
+1. Başla
+
+2. Eşleşen kitaplar için boş liste oluştur:
+   eslesen_kitaplar ← []
+
+3. kitap_katalogu içindeki her kitap için döngü başlat:
+   Döngü: kitap in kitap_katalogu
+
+      // Kitap adı, büyük-küçük harf duyarsız şekilde karşılaştırılır
+      kitap_baslik ← kitap["baslik"].toLowerCase()
+      aranan ← kitap_adi.toLowerCase()
+
+      Eğer aranan kitap_baslik içinde geçiyorsa:
+         → eşleşen bir kitap bulundu
+         eslesen_kitaplar'e kitap'ı ekle
+
+4. Döngü bittikten sonra:
+
+   Eğer eslesen_kitaplar listesi boş değilse:
+      Her kitap in eslesen_kitaplar için:
+         kitap bilgilerini ekrana yaz:
+           - Başlık
+           - Yazar
+           - ISBN
+           - Kategori
+           - Raf Numarası
+   Aksi halde:
+      "Aranan kitap bulunamadı." mesajını göster
+
+5. Bitir
+
+
+---
+
+💡 EKSTRALAR – ALGORİTMA GELİŞTİRME FİKİRLERİ
+
+Özellik	Açıklama
+
+🔍 Yazarla arama	Kullanıcı “yazar” bilgisiyle de kitap arayabilir.
+📚 Kategoriye göre filtreleme	Örneğin: sadece "Bilim Kurgu" kitapları.
+🔢 ISBN ile doğrudan eşleşme	ISBN benzersizdir, doğrudan eşleşirse tek sonuç döner.
+🧠 Yazım hatası toleransı	"Levenstein Distance" veya fuzzy matching ile yazım hatası düzeltilebilir.
+📦 Barkodla arama	Kitaplar barkodla aranabilir (kütüphane sistemleri için).
+
+
+
+---
+
+✅ SENARYO ÖRNEĞİ
+
+Kullanıcı Arıyor: "madonna"
+
+Veri:
+
+[
+  {
+    "baslik": "Kürk Mantolu Madonna",
+    "yazar": "Sabahattin Ali",
+    "ISBN": "9789753638029",
+    "kategori": "Roman",
+    "raf_no": "A-3-12"
+  },
+  {
+    "baslik": "Serenad",
+    "yazar": "Zülfü Livaneli",
+    "ISBN": "9789753167840",
+    "kategori": "Roman",
+    "raf_no": "B-1-10"
+  }
+]
+
+Sonuç:
+
+1 kitap bulundu:
+
+Başlık: Kürk Mantolu Madonna  
+Yazar: Sabahattin Ali  
+ISBN: 9789753638029  
+Kategori: Roman  
+Raf No: A-3-12
+
+
+---
+
+
+
