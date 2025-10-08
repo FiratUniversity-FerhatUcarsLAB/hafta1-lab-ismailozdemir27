@@ -1,4 +1,207 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541109
+AD-SOYAD:ismail Özdemir 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+
+Üretken algoritma projesi sosyal medyada viral olma algoritması pseudecode u açon
+
+Harika ve çağdaş bir konu:
+
+> Sosyal medyada viral olma algoritması üzerine bir üretken algoritma projesi.
+
+
+
+Bu konuda aşağıda sana detaylı ve açıklamalı bir pseudocode (sözde kod) vereceğim.
+Algoritmanın amacı, bir içeriğin sosyal medyada viral olma şansını artırmak için öneriler üretmek ve bir strateji planı çıkarmaktır.
+
+
+---
+
+📌 PROJE TANIMI:
+
+🔹 Proje Adı: ViralForce – Viral Olma Strateji Üretici Algoritması
+
+🔹 Amaç:
+
+Verilen içerik fikrine, hedef kitleye ve platforma göre viral olma ihtimali yüksek içerik stratejisi üretmek.
+
+
+---
+
+🎯 ALGORİTMA HEDEFLERİ:
+
+1. İçeriği analiz etmek
+
+
+2. Hedef platforma göre optimize etmek (TikTok, Instagram, X, vs.)
+
+
+3. Trend analizine dayalı öneriler üretmek
+
+
+4. Zamanlama, etiket, format gibi detaylar önermek
+
+
+5. Paylaşım planı önermek
+
+
+
+
+---
+
+📥 GİRDİLER (INPUT):
+
+icerik_basligi: İçerik fikri (örnek: “Kediler neden bu kadar ilgi görüyor?”)
+
+hedef_kitle: Demografi (örnek: gençler, anneler, girişimciler)
+
+platform: Paylaşılacak platform (örnek: Instagram Reels, TikTok, X)
+
+icerik_tipi: Video, görsel, tweet, carousel, vs.
+
+hedef_duygu: Eğlenceli, duygusal, bilgilendirici, vs.
+
+
+
+---
+
+📤 ÇIKTILAR (OUTPUT):
+
+Trend uyumu (%)
+
+Viral olma potansiyeli (puan)
+
+Başlık önerisi
+
+Format önerisi
+
+En iyi paylaşım zamanı
+
+Önerilen etiketler
+
+Eylem çağrısı (call-to-action)
+
+
+
+---
+
+📋 AYRINTILI PSEUDOCODE
+
+Fonksiyon: ViralIcerikStratejisiUret(icerik_basligi, hedef_kitle, platform, icerik_tipi, hedef_duygu)
+
+1. Başla
+
+2. İçerik analizini yap:
+   - anahtar_kelimeler ← icerik_basligi'ndan çıkar
+   - duygu_ton ← hedef_duygu (örnek: mizahi, motive edici)
+
+3. Trend verilerini kontrol et:
+   - aktif_trendler ← platform üzerindeki güncel trendleri al
+   - eşleşme_orani ← anahtar_kelimeler ile aktif_trendler arasındaki benzerlik oranını hesapla (0–100%)
+
+4. İçerik türüne göre format önerisi yap:
+   Eğer platform == "TikTok" VE icerik_tipi == "video" ise:
+       format ← "0.3s hook + 10s içerik + 3s CTA"
+   Eğer platform == "Instagram" VE icerik_tipi == "reels" ise:
+       format ← "Dikey video, altyazı ve trend müzik"
+   Aksi:
+       format ← "Genel öneri: kısa, etkili, dikkat çekici"
+
+5. Viral potansiyeli hesapla:
+   viral_puan ← (eşleşme_orani * 0.6) + (icerik_tipi_puani * 0.2) + (platform_etkinligi * 0.2)
+
+6. Etiket (hashtag) öner:
+   - platform_trend_tag ← platform trend etiketlerinden ilk 5 tanesini seç
+   - icerik_tema_tag ← anahtar_kelimelere göre 3 özel etiket üret
+   - etikeler ← platform_trend_tag + icerik_tema_tag
+
+7. En uygun paylaşım zamanını belirle:
+   - zaman ← platform üzerindeki aktiflik zamanlarına göre seç (örnek: TikTok → 20:00)
+
+8. Başlık/Caption öner:
+   - icerik_basligi'na göre 3 başlık türet (örnek: soru soran, şok eden, kısa ve net)
+
+9. Eylem çağrısı öner:
+   - hedef_kitle'ye uygun CTA üret
+       Eğer hedef_kitle == "gençler":
+           CTA ← "Yorumlara emoji bırak! 🔥"
+       Eğer hedef_kitle == "profesyoneller":
+           CTA ← "Fikrini yorumlarda paylaş."
+
+10. Sonuçları derle ve döndür:
+   Çıktı:
+       - trend_uyumu: eşleşme_orani %
+       - viral_puan: viral_puan / 100
+       - önerilen_format: format
+       - en_iyi_zaman: zaman
+       - önerilen_etiketler: etikeler
+       - başlık_önerileri: [x, y, z]
+       - CTA: cagir
+
+11. Bitir
+
+
+---
+
+🧠 Örnek Senaryo
+
+Girdi:
+
+icerik_basligi: "Sabahları daha üretken olmak için 3 alışkanlık"
+
+hedef_kitle: "girişimciler"
+
+platform: "Instagram Reels"
+
+icerik_tipi: "video"
+
+hedef_duygu: "bilgilendirici"
+
+
+Çıktı:
+
+trend_uyumu: %72
+
+viral_puan: 81/100
+
+önerilen_format: “30s eğitim videosu, hızlı altyazı, klasik müzik”
+
+zaman: 08:00 - 10:00 arası
+
+etiketler: #productivity #girişimcilik #motivation #reelsinstagram
+
+başlık_önerileri:
+
+1. “Bunu sabah yap, günün değişsin”
+
+
+2. “Girişimciler için 3 sabah rutini”
+
+
+3. “Zenginlerin sabah sırrı ne?”
+
+
+
+CTA: “Yorumlara kendi sabah alışkanlığını yaz!”
+
+
+
+---
+
+🧩 Kullanım Alanları
+
+Influencer içerik planlama araçları
+
+İçerik üreticiler için “Viral içerik önerici bot”
+
+Pazarlama ajansları için otomatik içerik strateji üretici
+
+Eğitimde: "Veri + Yaratıcılık" algoritma örneği
+
+
+
+---
+
+
+
