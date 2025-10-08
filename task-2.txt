@@ -1,4 +1,191 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541109
+AD-SOYAD:ismail özdemir
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+
+Basit kart algoritması oluşturabilir misin biraz daha ayruntılı şekilde. 
+
+---
+
+🎮 OYUN: Basit Kart Oyunu (1v1 Karşılaştırmalı Kart Oyunu)
+
+🧠 Oyun Tanımı:
+
+Her oyuncunun bir kart destesinden rastgele kartlar seçilir.
+
+Her kartın güç puanı (power) vardır.
+
+Oyuncular sırayla birer kart açar.
+
+Kartların güçleri karşılaştırılır, yüksek olan eli kazanır.
+
+Tüm kartlar oynandığında en çok eli kazanan oyuncu oyunu kazanır.
+
+
+
+---
+
+🔢 Oyunun Girdileri:
+
+Her oyuncunun kart destesindeki kartlar.
+
+Her kart: {isim, güç} yapısında.
+
+Belirli sayıda kart turu (örneğin 5 el).
+
+
+
+---
+
+🎯 Oyun Stratejisi (Basit):
+
+Her turda oyuncular ellerindeki en yüksek güçlü kartı oynamaya çalışır.
+
+Rakibin hamlesine göre sonraki hamle stratejisi belirlenebilir. (isteğe bağlı)
+
+
+
+---
+
+🧾 Pseudocode – Ayrıntılı Algoritma
+
+Fonksiyon: KartOyunu(oyuncu1_kartlari, oyuncu2_kartlari, tur_sayisi)
+
+1. Başla
+
+2. Kazanma sayaçlarını başlat:
+   oyuncu1_puan ← 0
+   oyuncu2_puan ← 0
+
+3. Kartları karıştır:
+   oyuncu1_kartlari ← rastgele sırala
+   oyuncu2_kartlari ← rastgele sırala
+
+4. Her tur için:
+   Döngü i ← 0'dan tur_sayisi - 1'e kadar:
+
+      kart1 ← oyuncu1_kartlari[i]
+      kart2 ← oyuncu2_kartlari[i]
+
+      Ekrana yaz: "Tur {i+1}: {kart1['isim']} ({kart1['guc']}) vs {kart2['isim']} ({kart2['guc']})"
+
+      Eğer kart1["guc"] > kart2["guc"] ise:
+          oyuncu1_puan ← oyuncu1_puan + 1
+          Ekrana yaz: "Oyuncu 1 kazanıyor!"
+      Aksi eğer kart2["guc"] > kart1["guc"] ise:
+          oyuncu2_puan ← oyuncu2_puan + 1
+          Ekrana yaz: "Oyuncu 2 kazanıyor!"
+      Aksi:
+          Ekrana yaz: "Beraberlik!"
+
+5. Oyun Sonucu:
+   Eğer oyuncu1_puan > oyuncu2_puan:
+      Ekrana yaz: "Oyuncu 1 oyunu kazandı!"
+   Aksi eğer oyuncu2_puan > oyuncu1_puan:
+      Ekrana yaz: "Oyuncu 2 oyunu kazandı!"
+   Aksi:
+      Ekrana yaz: "Oyun berabere bitti!"
+
+6. Bitir
+
+
+---
+
+💻 Python Kodu (Detaylı ve Açıklamalı)
+
+import random
+
+# Kart tanımı: isim ve güç
+kart_destesi = [
+    {"isim": "Ejderha", "guc": 90},
+    {"isim": "Savaşçı", "guc": 70},
+    {"isim": "Okçu", "guc": 60},
+    {"isim": "Büyücü", "guc": 80},
+    {"isim": "Cüce", "guc": 50},
+    {"isim": "Dev", "guc": 85},
+    {"isim": "Korsan", "guc": 65},
+    {"isim": "Ninja", "guc": 75},
+    {"isim": "Zombi", "guc": 40},
+    {"isim": "Robot", "guc": 95}
+]
+
+# Oyunculara kart dağıt
+def kart_dagit(destek, kart_sayisi):
+    kopya_deste = destek.copy()
+    random.shuffle(kopya_deste)
+    return kopya_deste[:kart_sayisi]
+
+# Ana oyun fonksiyonu
+def kart_oyunu(tur_sayisi=5):
+    oyuncu1 = kart_dagit(kart_destesi, tur_sayisi)
+    oyuncu2 = kart_dagit(kart_destesi, tur_sayisi)
+
+    oyuncu1_puan = 0
+    oyuncu2_puan = 0
+
+    print("=== OYUN BAŞLIYOR ===\n")
+
+    for i in range(tur_sayisi):
+        kart1 = oyuncu1[i]
+        kart2 = oyuncu2[i]
+
+        print(f"Tur {i+1}: {kart1['isim']} ({kart1['guc']}) vs {kart2['isim']} ({kart2['guc']})")
+
+        if kart1["guc"] > kart2["guc"]:
+            print("→ Oyuncu 1 bu turu kazandı!\n")
+            oyuncu1_puan += 1
+        elif kart2["guc"] > kart1["guc"]:
+            print("→ Oyuncu 2 bu turu kazandı!\n")
+            oyuncu2_puan += 1
+        else:
+            print("→ Bu tur berabere!\n")
+
+    print("=== OYUN SONU ===")
+    print(f"Skor: Oyuncu 1 = {oyuncu1_puan}, Oyuncu 2 = {oyuncu2_puan}")
+
+    if oyuncu1_puan > oyuncu2_puan:
+        print("🏆 Oyuncu 1 oyunu kazandı!")
+    elif oyuncu2_puan > oyuncu1_puan:
+        print("🏆 Oyuncu 2 oyunu kazandı!")
+    else:
+        print("🤝 Oyun berabere!")
+
+# Oyunu başlat
+kart_oyunu()
+
+
+---
+
+🎯 Geliştirme Önerileri (Strateji Katmak İçin):
+
+1. Hamleye Göre Kart Seçimi:
+
+Oyuncu, rakibin kalan kartlarına göre yüksek kartlarını sonraya saklayabilir.
+
+
+
+2. Kart Türleri ve Zayıflıklar (Taş-Kağıt-Makas mantığı):
+
+Örneğin: Büyücü > Savaşçı, Savaşçı > Okçu, Okçu > Büyücü gibi döngüsel üstünlük.
+
+
+
+3. Enerji Sistemi:
+
+Kart oynandıkça enerji harcanır, oyuncu kart seçiminde bunu da hesaba katar.
+
+
+
+4. Otomatik Bot Oyuncu Stratejisi:
+
+Bot, elindeki kartları rastgele değil, durum analizine göre seçer.
+
+
+
+
+
+---
+
+Dilersen bu oyunu grafikli bir arayüze (örneğin PyGame veya web arayüzü) taşıyabiliriz ya da daha ileri düzey AI stratejileri ile geliştirebiliriz. Hangisiyle ilerlemek istersin?
+
