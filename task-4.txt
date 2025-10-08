@@ -1,4 +1,158 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541109
+AD-SOYAD:ismail Özdemir 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+Problem çözme algoritması lego ile belirli şekil yapma algoritması
+Pseudecode u daha ayrıntılı yazar mısın
+
+Harika bir konu seçtin! LEGO ile şekil yapma problemi, problem çözme algoritması ve robotik/mekanik düşünce açısından oldukça öğretici.
+
+
+---
+
+🧠 Problem Çözme Algoritması: LEGO ile Belirli Şekil Yapma
+
+Amaç: Elimizdeki parçaları kullanarak belirli bir LEGO şekli oluşturmak.
+
+
+---
+
+📦 Problem Tanımı:
+
+Girdi:
+
+hedef_sekil: Yapılmak istenen LEGO yapısının bir tanımı (örneğin bir ızgara/koordinat sistemi şeklinde)
+
+mevcut_parcalar: Elimizdeki LEGO parçalarının listesi (renk, boyut, tür, adet)
+
+
+Çıktı:
+
+Parçaları yerleştirme sırasını içeren bir plan (hangi parça, nereye, ne zaman)
+
+Şekil başarıyla oluşturulursa: "Şekil tamamlandı"
+
+Parça yetersizse: "Yeterli parça yok"
+
+
+
+
+---
+
+🎯 Hedef:
+
+Hedef şekle uygun parçaları yerleştirerek adım adım yapıyı oluşturmak.
+Amaç hem uygunluk, hem de optimum kaynak kullanımıdır.
+
+
+---
+
+🧾 Ayrıntılı Pseudocode – LEGO ile Şekil Yapma
+
+Fonksiyon: LegoSekilYap(hedef_sekil, mevcut_parcalar)
+
+1. Başla
+
+2. Yapı Planı oluştur:
+   - hedef_sekil, bir 2D veya 3D matris olabilir (örneğin 5x5'lik grid)
+   - Her hücrede ihtiyaç duyulan parça tipi ve rengi tanımlı:
+     örn: hedef_sekil[2][1] = {"renk": "kırmızı", "boyut": "2x2"}
+
+3. Yerleştirme listesi başlat:
+   - yapim_adimlari ← boş liste
+
+4. Her koordinat için döngü başlat (örneğin satır-sütun olarak):
+
+   Döngü: her satır i içinde
+     Döngü: her sütun j içinde
+
+        hedef_parca ← hedef_sekil[i][j]
+
+        Eğer hedef_parca boş ise:
+            → Bu hücrede parça gerekmez, atla
+
+        Uygun_parca_bul ← mevcut_parcalar içinde
+            hedef_parca ile eşleşen (renk ve boyut uyumlu) bir parça ara
+
+        Eğer Uygun_parca_bul varsa:
+            - yapim_adimlari'ne şu adımı ekle:
+              {"parca": Uygun_parca_bul, "konum": (i,j)}
+            - Parçayı mevcut_parcalar listesinden çıkar (kullanıldı olarak işaretle)
+        Aksi halde:
+            → Gerekli parça yok, hata bildir
+            Çık: "Parça yetersiz. Şekil tamamlanamaz."
+
+5. Döngü bittikten sonra:
+   Tüm parçalar doğru yerleştirildiyse:
+   Çık:
+      - yapim_adimlari (adım adım yapı planı)
+      - "Şekil başarıyla oluşturuldu."
+
+6. Bitir
+
+
+---
+
+📐 Basitleştirilmiş Örnek: 3x3 Kare Yapısı
+
+Hedef Şekil (hedef_sekil):
+
+Koordinat	Parça Rengi	Boyut
+
+(0,0)	kırmızı	2x2
+(0,1)	sarı	1x2
+(0,2)	mavi	2x2
+...	...	...
+
+
+Mevcut Parçalar (mevcut_parcalar):
+
+[
+  {"renk": "kırmızı", "boyut": "2x2"},
+  {"renk": "sarı", "boyut": "1x2"},
+  {"renk": "mavi", "boyut": "2x2"},
+  {"renk": "kırmızı", "boyut": "1x1"},
+]
+
+Sonuç:
+
+Eğer gerekli her parça mevcutsa:
+✅ "Şekil başarıyla oluşturuldu."
+Aksi takdirde:
+❌ "Parça yetersiz. Şekil tamamlanamaz."
+
+
+---
+
+🔁 Alternatif Stratejiler (Problem Çözme Teknikleri)
+
+Teknik	Açıklama
+
+Greedy (açgözlü)	İlk bulunan uygun parçayı hemen yerleştirir. Hızlı ama optimal değil.
+Backtracking	Parça uymuyorsa geri dönüp alternatif yollar dener.
+Parça Gruplama	Aynı türden parçaları gruplayarak verimliliği artırır.
+Heuristik Planlama	En karmaşık parçaları önce yerleştir, sonra basitleri.
+
+
+
+---
+
+🧠 Gerçek Hayata Uyum
+
+Bu algoritma şu alanlarda kullanılabilir:
+
+LEGO robotları ile otomatik yapı oluşturma
+
+Mimari tasarım simülasyonları
+
+3D baskı ön planlaması
+
+Eğitimde mantıksal akış ve problem çözme becerisi geliştirme
+
+
+
+---
+
+
+
